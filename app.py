@@ -9,13 +9,16 @@ app = Flask(__name__)
 
 db = os.environ.get("DB_URL");
 adapter = os.environ.get("DB_ADAPTER");
+readOnly = os.environ.get("READ_ONLY");
 if db is None:
     db = "sqlite:///db.sqlite3"
 
 if adapter is None:
     adapter = "chatterbot.storage.SQLStorageAdapter"
+if readOnly is None:
+    readOnly = "True"
 
-chinese_bot = ChatBot("Chatterbot",read_only=True, storage_adapter=adapter,
+chinese_bot = ChatBot("Chatterbot", read_only=(readOnly == "True"), storage_adapter=adapter,
                       database_uri=db)
 trainer = ListTrainer(chinese_bot)
 
