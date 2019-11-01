@@ -5,5 +5,5 @@
 
 可以使用环境变量设置数据库
 
-DB_URL: mongodb://localhost:27017/test
-DB_ADAPTER: chatterbot.storage.MongoDatabaseAdapter
+1. DB_URL: mongodb://localhost:27017/test
+2. DB_ADAPTER: chatterbot.storage.MongoDatabaseAdapter
